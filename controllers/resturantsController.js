@@ -5,7 +5,7 @@ const Resturant = require('../models/resturantModel');
 exports.getAllResturants = async (req, res) => {
     try {
         const resturants = await Resturant.find();
-        console.log(resturants);
+      
         res.status(200).json(resturants);
     } catch (err) {
         res.status(500).json({ error: err.message });
@@ -29,14 +29,11 @@ exports.getResturantById = async (req, res) => {
 exports.createResturant = async (req, res) => {
     try {
         const resturant = new Resturant();
-        console.log(req.body.name);
         resturant.id = req.body.id;
         resturant.name = req.body.name;
         resturant.full_address = req.body.full_address;
         resturant.creation_date = req.body.creation_date;
         resturant.manager = req.body.manager;
-
-      
         await resturant.save();
         res.status(201).json(resturant);
     } catch (err) {
