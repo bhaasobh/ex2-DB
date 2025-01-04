@@ -72,3 +72,36 @@ exports.editCourse = async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 };
+
+
+exports.getAllCoursesDetails = async (req, res) => {
+    try {
+        // Fetch all courses
+        const courses = await Course.find();
+
+        // If no courses are found
+        if (!courses || courses.length === 0) {
+            return res.status(404).json({ error: "No courses found" });
+        }
+
+        // For each course, fetch the students registered in it
+        const coursesWithDetails = await Promise.all(
+            courses.map(async (course) => {
+                const students = await Students.find({ registeredCourses: course._id }).select("name");
+                return {
+                    courseName: course.courseName,
+                    TeacherName: course.TeacherName,
+                    point: course.point,
+                    maxStudents: course.maxStudents,
+                    currentStudentNumber: students.length,
+                    students: students.map(student => student.name) // Extract student names
+                };
+            })
+        );
+
+        res.status(200).json({ courses: coursesWithDetails });
+    } catch (err) {
+        console.error("Error fetching courses with Details:", err.message);
+        res.status(500).json({ error: "Internal server error" });
+    }
+};

@@ -7,6 +7,8 @@ const { authenticateToken ,authorizeTeacher , authorizeStudent} = require('../mi
 
 router.get('/getall',studentController.getAll);
 router.post('/:studentId/addCourse', authenticateToken, studentController.addCourseToStudent);
+router.delete('/:studentId/removeCourse', authenticateToken, studentController.removeCourseFromStudent);
+
 
 
 module.exports = router;

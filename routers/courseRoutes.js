@@ -8,6 +8,8 @@ router.post('/add', authenticateToken, authorizeTeacher, courseController.addCou
 router.delete('/:courseId', authenticateToken, authorizeTeacher, courseController.deleteCourse);
 router.put('/:courseId', authenticateToken, authorizeTeacher, courseController.editCourse);
 router.get('/getall', courseController.getAllCourses);
+router.get('/allWithDetails', authenticateToken, authorizeTeacher, courseController.getAllCoursesDetails);
+
 
 
 
