@@ -12,7 +12,6 @@ exports.addCourse = async (req, res) => {
             maxStudents 
         } = req.body;
 
-        // Create a new course instance
         const newCourse = new Course({ courseName, TeacherName, point, maxStudents });
         await newCourse.save();
 
@@ -27,13 +26,11 @@ exports.deleteCourse = async (req, res) => {
     try {
         const { courseId } = req.params;
 
-        
         const deletedCourse = await Course.findByIdAndDelete(courseId);
         if (!deletedCourse) {
             return res.status(404).json({ error: "Course not found" });
         }
 
-       
         await Students.updateMany(
             { registeredCourses: courseId },
             { $pull: { registeredCourses: courseId } }
@@ -51,7 +48,6 @@ exports.editCourse = async (req, res) => {
         const { courseId } = req.params;
         const updates = req.body;
 
-        // Find the course and update it
         const updatedCourse = await Course.findByIdAndUpdate(courseId, updates, { new: true });
         if (!updatedCourse) {
             return res.status(404).json({ error: 'Course not found' });
@@ -67,15 +63,13 @@ exports.editCourse = async (req, res) => {
 
 exports.getAllCoursesDetails = async (req, res) => {
     try {
-        // Fetch all courses
+       
         const courses = await Course.find();
 
-        // If no courses are found
         if (!courses || courses.length === 0) {
             return res.status(404).json({ error: "No courses found" });
         }
 
-        // For each course, fetch the students registered in it
         const coursesWithDetails = await Promise.all(
             courses.map(async (course) => {
                 const students = await Students.find({ registeredCourses: course._id }).select("name");
@@ -85,7 +79,7 @@ exports.getAllCoursesDetails = async (req, res) => {
                     point: course.point,
                     maxStudents: course.maxStudents,
                     currentStudentNumber: students.length,
-                    students: students.map(student => student.name) // Extract student names
+                    students: students.map(student => student.name) 
                 };
             })
         );

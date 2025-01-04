@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken');
 
-// Middleware to authenticate token
 exports.authenticateToken = (req, res, next) => {
     const token = req.header('Authorization')?.split(' ')[1];
     if (!token) {
@@ -9,7 +8,7 @@ exports.authenticateToken = (req, res, next) => {
 
     try {
         const verified = jwt.verify(token, process.env.SECRET_KEY);
-        req.user = verified; // Attach user info (id, role) to the request
+        req.user = verified; 
         next();
     } catch (err) {
         console.error("JWT Error:", err.message);

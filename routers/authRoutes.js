@@ -3,11 +3,9 @@ const router = express.Router();
 const authController = require('../controllers/authController');
 const { authenticateToken, authorizeStudent , authorizeTeacher } = require('../middlewares/authMiddleware');
 
-// Authentication routes
 router.post('/register', authController.registerUser);
 router.post('/login', authController.login);
 
-// Protected route for students
 router.get(
     '/student-only',
     authenticateToken,
@@ -20,7 +18,6 @@ router.get(
 
 authenticateToken, authorizeTeacher,
 
-// Protected route for teachers
 router.get(
     '/teacher-only',
     authenticateToken,
