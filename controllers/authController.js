@@ -11,12 +11,10 @@ exports.registerUser = async (req, res) => {
             return res.status(400).json({ error: "Invalid role. Must be 'student' or 'teacher'." });
         }
 
-        // Validate required fields
         if (!id || !name || !address || !password) {
             return res.status(400).json({ error: "Missing required fields, including password." });
         }
 
-        // Hash the password
         const hashedPassword = await bcrypt.hash(password, 10);
 
         if (role === 'student') {
@@ -57,7 +55,6 @@ exports.login = async (req, res) => {
             return res.status(400).json({ error: "Invalid role. Must be 'student' or 'teacher'." });
         }
 
-        // Find user by role
         const userModel = role === 'student' ? Students : Teachers;
         const user = await userModel.findOne({ id });
         if (!user) return res.status(404).json({ error: 'User not found' });
@@ -69,7 +66,6 @@ exports.login = async (req, res) => {
             return res.status(401).json({ error: 'Invalid credentials' });
         }
 
-        // Generate a 10-minute access token with role
         const token = jwt.sign(
             { id: user._id, role: role },
             process.env.SECRET_KEY,
