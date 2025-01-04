@@ -2,15 +2,6 @@ const Course = require('../models/courseModel');
 const Students = require('../models/studentModel'); // Adjust the path if necessary
 
 
-exports.getAllCourses = async (req, res) => {
-    try {
-        const course = await Course.find();
-      
-        res.status(200).json(course);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-};
 
 exports.addCourse = async (req, res) => {
     try {
