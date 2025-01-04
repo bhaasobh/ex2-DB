@@ -1,19 +1,18 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const User = require('../models/userModel');
 const Students = require('../models/studentModel');
 const Teachers = require('../models/teacherModel');
 
 exports.registerUser = async (req, res) => {
     try {
-        const { role, id, Name, address, student_year, password } = req.body;
+        const { role, id, name, address, student_year, password } = req.body;
 
         if (!role || !['student', 'teacher'].includes(role)) {
             return res.status(400).json({ error: "Invalid role. Must be 'student' or 'teacher'." });
         }
 
         // Validate required fields
-        if (!id || !Name || !address || !password) {
+        if (!id || !name || !address || !password) {
             return res.status(400).json({ error: "Missing required fields, including password." });
         }
 
@@ -23,7 +22,8 @@ exports.registerUser = async (req, res) => {
         if (role === 'student') {
             const newStudent = new Students({
                 id,
-                Name,
+                name,
+                role,
                 address,
                 student_year,
                 password: hashedPassword,
@@ -35,7 +35,8 @@ exports.registerUser = async (req, res) => {
         if (role === 'teacher') {
             const newTeacher = new Teachers({
                 id,
-                Name,
+                name,
+                role,
                 address,
                 password: hashedPassword,
             });

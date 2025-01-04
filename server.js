@@ -2,8 +2,6 @@ const express = require("express");
 const app = express();
 const jwt = require("jsonwebtoken");
 const port = process.env.PORT || 8080;
-const uri = "mongodb+srv://bahaasobeh:pZSlSdqy649gsib9@cluster0.osvp3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-const resturantRoutes = require('./routers/resturantsRouter');
 const authRoutes = require('./routers/authRoutes');
 const CourseRoutes = require('./routers/courseRoutes');
 const studentRoute = require('./routers/studentRoutes');
@@ -25,7 +23,6 @@ app.get('/auth',async(req,res) => {
 app.use('/api/student',studentRoute)
 app.use('/api/auth', authRoutes);
 app.use('/api/courses', CourseRoutes);
-app.use('/api/resturants', resturantRoutes);
 
 
 app.listen(port, () => {
