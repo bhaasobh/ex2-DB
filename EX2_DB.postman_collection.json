@@ -1,0 +1,1600 @@
+{
+	"info": {
+		"_postman_id": "44f653e3-05b5-400c-afcc-d3167ba87248",
+		"name": "EX2_DB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22805371"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "   {\r\n            \"role\": \"student\",\r\n            \"name\": \"bahaasobeh\",\r\n            \"id\": \"123456\",\r\n            \"password\": \"123321\",\r\n            \"address\":\"haifa\"\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ex2-db.onrender.com/api/auth/register",
+					"protocol": "https",
+					"host": [
+						"ex2-db",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "register error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "   {\r\n            \"role\": \"teacher\",\r\n            \"name\": \"Dr. John Doe\",\r\n            \"password\": \"123321\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ex2-db.onrender.com/api/auth/register",
+							"protocol": "https",
+							"host": [
+								"ex2-db",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 04 Jan 2025 20:50:59 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "48"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "8fce1aa20cb337e8-FRA"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"38-4nC6Vf5XsgcZWxNC+OwL9MxI0U4\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "b01fe061-497f-4159"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Missing required fields, including password.\"\n}"
+				},
+				{
+					"name": "teacher successfull",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "   {\r\n            \"role\": \"teacher\",\r\n            \"name\": \"Dr. John Doe\",\r\n            \"id\": \"204657365\",\r\n            \"password\": \"123321\",\r\n            \"address\":\"haifa\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ex2-db.onrender.com/api/auth/register",
+							"protocol": "https",
+							"host": [
+								"ex2-db",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 04 Jan 2025 20:53:06 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "191"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "8fce1db5fdc6d359-FRA"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f6-jLTIhbQ2kenyRjyi8hY7NM1/cJU\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "15e9b28a-036f-48f5"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Teacher registered successfully\",\n    \"teacher\": {\n        \"id\": \"204657365\",\n        \"name\": \"Dr. John Doe\",\n        \"address\": \"haifa\",\n        \"password\": \"$2b$10$tM3H5VV1.4Be.RiF3y.Qoe95Vg/yRF3/MJFG/qtuEnnavmUdXxGV.\",\n        \"role\": \"teacher\",\n        \"_id\": \"67799fb22b45d158e8e75ebb\",\n        \"__v\": 0\n    }\n}"
+				},
+				{
+					"name": "student successfull",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "   {\r\n            \"role\": \"student\",\r\n            \"name\": \"bahaasobeh\",\r\n            \"id\": \"123456\",\r\n            \"password\": \"123321\",\r\n            \"address\":\"haifa\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ex2-db.onrender.com/api/auth/register",
+							"protocol": "https",
+							"host": [
+								"ex2-db",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 04 Jan 2025 20:54:29 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "226"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "8fce1fc10b132bb4-FRA"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"12e-Yj58siJZM5DKU+DOGTC8FW8X3pY\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "5d17309e-dfe8-4690"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Student registered successfully\",\n    \"student\": {\n        \"id\": \"123456\",\n        \"name\": \"bahaasobeh\",\n        \"role\": \"student\",\n        \"address\": \"haifa\",\n        \"student_year\": 1,\n        \"pointsInSemester\": 0,\n        \"registeredCourses\": [],\n        \"password\": \"$2b$10$bMNYQSFtRxmYfUnJtBNiPe4TOSzD5RMbf/1Cnm4dHOCXAKn87wNfK\",\n        \"_id\": \"6779a0052b45d158e8e75ebd\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "   {\r\n            \"role\": \"student\",\r\n            \"id\": \"123456\",\r\n            \"password\": \"123321\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ex2-db.onrender.com/api/auth/login",
+					"protocol": "https",
+					"host": [
+						"ex2-db",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "login successfull teacher",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "   {\r\n            \"role\": \"teacher\",\r\n            \"id\": \"204657365\",\r\n            \"password\": \"123321\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ex2-db.onrender.com/api/auth/login",
+							"protocol": "https",
+							"host": [
+								"ex2-db",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 04 Jan 2025 20:57:41 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "176"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "8fce246c6ecdd36e-FRA"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"cd-2Mf7u+Q6zf48ar0wsCEwqM0B3ss\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "c7a25fba-75a1-48e4"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3Nzk5ZmIyMmI0NWQxNThlOGU3NWViYiIsInJvbGUiOiJ0ZWFjaGVyIiwiaWF0IjoxNzM2MDI0MjYxLCJleHAiOjE3MzYwMjQ4NjF9.oIAB9FK-D33oPkienYZDwJzvXxEdAQgtHldtX6Q-h5k\"\n}"
+				},
+				{
+					"name": "login successfull student",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "   {\r\n            \"role\": \"student\",\r\n            \"id\": \"123456\",\r\n            \"password\": \"123321\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ex2-db.onrender.com/api/auth/login",
+							"protocol": "https",
+							"host": [
+								"ex2-db",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 04 Jan 2025 21:00:51 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "178"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "8fce290fec6a1c73-FRA"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"cd-83GxA9o6G8fUQCow+j8a2+PWR9M\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "b329276e-3c1a-4058"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NzlhMDA1MmI0NWQxNThlOGU3NWViZCIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzM2MDI0NDUxLCJleHAiOjE3MzYwMjUwNTF9.TZ5divIt5S1Bp2O9G2n6B-dCJSNus-glr-0iF_5zslY\"\n}"
+				}
+			]
+		},
+		{
+			"name": "add course",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3Nzk5ZmIyMmI0NWQxNThlOGU3NWViYiIsInJvbGUiOiJ0ZWFjaGVyIiwiaWF0IjoxNzM2MDI0ODg3LCJleHAiOjE3MzYwMjU0ODd9.ISDvxGcOsBtoDADCDCX-jSYAl7Qvgjy3CbtkIqgDxlM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"courseName\":\"WEB\",\r\n            \"TeacherName\":\"KEREN\",\r\n            \"point\":\"4\",\r\n            \"maxStudents\":\"30\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ex2-db.onrender.com/api/courses/add",
+					"protocol": "https",
+					"host": [
+						"ex2-db",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"courses",
+						"add"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Access denied. No token provided",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"courseName\":\"WEB\",\r\n            \"TeacherName\":\"KEREN\",\r\n            \"point\":\"4\",\r\n            \"maxStudents\":\"30\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ex2-db.onrender.com/api/courses/add",
+							"protocol": "https",
+							"host": [
+								"ex2-db",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"courses",
+								"add"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 04 Jan 2025 21:04:24 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "47"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "8fce2e45ab5b4d37-FRA"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2d-OKFaJYZLk9Vw7Mn+6fXtn/5t+Ak\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "c5987667-956b-42e7"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Access denied. No token provided.\"\n}"
+				},
+				{
+					"name": "error only teacher",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NzlhMDA1MmI0NWQxNThlOGU3NWViZCIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzM2MDI0NDUxLCJleHAiOjE3MzYwMjUwNTF9.TZ5divIt5S1Bp2O9G2n6B-dCJSNus-glr-0iF_5zslY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"courseName\":\"WEB\",\r\n            \"TeacherName\":\"KEREN\",\r\n            \"point\":\"4\",\r\n            \"maxStudents\":\"30\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ex2-db.onrender.com/api/courses/add",
+							"protocol": "https",
+							"host": [
+								"ex2-db",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"courses",
+								"add"
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 04 Jan 2025 21:06:52 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "68"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "8fce31e419dd4d32-FRA"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"44-Pbjh1VaWwxtxDyExKuBqskZB7qM\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "d415454f-5ed0-4129"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Access forbidden: Only teachers can perform this action.\"\n}"
+				},
+				{
+					"name": "Course added successfully",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3Nzk5ZmIyMmI0NWQxNThlOGU3NWViYiIsInJvbGUiOiJ0ZWFjaGVyIiwiaWF0IjoxNzM2MDI0ODg3LCJleHAiOjE3MzYwMjU0ODd9.ISDvxGcOsBtoDADCDCX-jSYAl7Qvgjy3CbtkIqgDxlM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"courseName\":\"WEB\",\r\n            \"TeacherName\":\"KEREN\",\r\n            \"point\":\"4\",\r\n            \"maxStudents\":\"30\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ex2-db.onrender.com/api/courses/add",
+							"protocol": "https",
+							"host": [
+								"ex2-db",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"courses",
+								"add"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 04 Jan 2025 21:08:19 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "146"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "8fce3400fabd4d32-FRA"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"b8-YEhLrp6MKoFpgXXIW3I494n7nXg\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "29d77a0f-7ecd-4c6e"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Course added successfully\",\n    \"course\": {\n        \"courseName\": \"WEB\",\n        \"TeacherName\": \"KEREN\",\n        \"point\": 4,\n        \"maxStudents\": 30,\n        \"currentStudentNumber\": 0,\n        \"_id\": \"6779a3422b45d158e8e75ec3\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "delete Course",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NzlhMDA1MmI0NWQxNThlOGU3NWViZCIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzM2MDI1MDk3LCJleHAiOjE3MzYwMjU2OTd9.ttLGOY3WmAiFA7rJPsdD3T3Arm0Wm3-lhpHk2xIFO28",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://ex2-db.onrender.com/api/courses/6779a3422b45d158e8e75ec3",
+					"protocol": "https",
+					"host": [
+						"ex2-db",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"courses",
+						"6779a3422b45d158e8e75ec3"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "delete Course by teacher only",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3Nzk5ZmIyMmI0NWQxNThlOGU3NWViYiIsInJvbGUiOiJ0ZWFjaGVyIiwiaWF0IjoxNzM2MDI0ODg3LCJleHAiOjE3MzYwMjU0ODd9.ISDvxGcOsBtoDADCDCX-jSYAl7Qvgjy3CbtkIqgDxlM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://ex2-db.onrender.com/api/courses/6779a3422b45d158e8e75ec3",
+							"protocol": "https",
+							"host": [
+								"ex2-db",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"courses",
+								"6779a3422b45d158e8e75ec3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 04 Jan 2025 21:10:57 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "149"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "8fce37e0ef608ff2-FRA"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ba-K72iTUcwtYVHvfRKrje1FOQw2ic\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "28c3424a-3bae-4efb"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Course deleted successfully\",\n    \"course\": {\n        \"_id\": \"6779a3422b45d158e8e75ec3\",\n        \"courseName\": \"WEB\",\n        \"TeacherName\": \"KEREN\",\n        \"point\": 4,\n        \"maxStudents\": 30,\n        \"currentStudentNumber\": 0,\n        \"__v\": 0\n    }\n}"
+				},
+				{
+					"name": "student not allow",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NzlhMDA1MmI0NWQxNThlOGU3NWViZCIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzM2MDI1MDk3LCJleHAiOjE3MzYwMjU2OTd9.ttLGOY3WmAiFA7rJPsdD3T3Arm0Wm3-lhpHk2xIFO28",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://ex2-db.onrender.com/api/courses/6779a3422b45d158e8e75ec3",
+							"protocol": "https",
+							"host": [
+								"ex2-db",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"courses",
+								"6779a3422b45d158e8e75ec3"
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 04 Jan 2025 21:11:58 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "68"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "8fce395d2c2f8ff2-FRA"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"44-Pbjh1VaWwxtxDyExKuBqskZB7qM\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "5532e7be-bdea-41fa"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Access forbidden: Only teachers can perform this action.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "course Edit",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3Nzk5ZmIyMmI0NWQxNThlOGU3NWViYiIsInJvbGUiOiJ0ZWFjaGVyIiwiaWF0IjoxNzM2MDI0ODg3LCJleHAiOjE3MzYwMjU0ODd9.ISDvxGcOsBtoDADCDCX-jSYAl7Qvgjy3CbtkIqgDxlM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"points\" : 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ex2-db.onrender.com/api/courses/677987507613e098ed4b4344",
+					"protocol": "https",
+					"host": [
+						"ex2-db",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"courses",
+						"677987507613e098ed4b4344"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Edit successfully",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3Nzk5ZmIyMmI0NWQxNThlOGU3NWViYiIsInJvbGUiOiJ0ZWFjaGVyIiwiaWF0IjoxNzM2MDI0ODg3LCJleHAiOjE3MzYwMjU0ODd9.ISDvxGcOsBtoDADCDCX-jSYAl7Qvgjy3CbtkIqgDxlM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"points\" : 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ex2-db.onrender.com/api/courses/getall",
+							"protocol": "https",
+							"host": [
+								"ex2-db",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"courses",
+								"getall"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 04 Jan 2025 21:15:06 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "145"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "8fce3df408875d8e-FRA"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"bc-ACm3wYLMwvu/3xJhOEFiGy+ze/k\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "e015d090-e91e-413e"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Course updated successfully\",\n    \"course\": {\n        \"_id\": \"677987507613e098ed4b4344\",\n        \"courseName\": \"ssss\",\n        \"TeacherName\": \"bahaa\",\n        \"point\": 5,\n        \"maxStudents\": 309,\n        \"currentStudentNumber\": 0,\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "get all courses With Details",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3Nzk5ZmIyMmI0NWQxNThlOGU3NWViYiIsInJvbGUiOiJ0ZWFjaGVyIiwiaWF0IjoxNzM2MDI0ODg3LCJleHAiOjE3MzYwMjU0ODd9.ISDvxGcOsBtoDADCDCX-jSYAl7Qvgjy3CbtkIqgDxlM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"points\" : 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ex2-db.onrender.com/api/courses/allWithDetails",
+					"protocol": "https",
+					"host": [
+						"ex2-db",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"courses",
+						"allWithDetails"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get all courses With Details",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3Nzk5ZmIyMmI0NWQxNThlOGU3NWViYiIsInJvbGUiOiJ0ZWFjaGVyIiwiaWF0IjoxNzM2MDI0ODg3LCJleHAiOjE3MzYwMjU0ODd9.ISDvxGcOsBtoDADCDCX-jSYAl7Qvgjy3CbtkIqgDxlM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"points\" : 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ex2-db.onrender.com/api/courses/allWithDetails",
+							"protocol": "https",
+							"host": [
+								"ex2-db",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"courses",
+								"allWithDetails"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 04 Jan 2025 21:17:56 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "318"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "8fce420cbfdc68f5-FRA"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4f6-cDStvlV8mnw4R4NEmD4jv1U99cY\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "3d5cf6a5-fcab-41a2"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"courses\": [\n        {\n            \"courseName\": \"ssss\",\n            \"TeacherName\": \"bahaa\",\n            \"point\": 5,\n            \"maxStudents\": 309,\n            \"currentStudentNumber\": 0,\n            \"students\": []\n        },\n        {\n            \"courseName\": \"Mathematics 101\",\n            \"TeacherName\": \"Dr. John Doe\",\n            \"point\": 3,\n            \"maxStudents\": 30,\n            \"currentStudentNumber\": 0,\n            \"students\": []\n        },\n        {\n            \"courseName\": \"Physics 201\",\n            \"TeacherName\": \"Dr. Jane Smith\",\n            \"point\": 4,\n            \"maxStudents\": 25,\n            \"currentStudentNumber\": 0,\n            \"students\": []\n        },\n        {\n            \"courseName\": \"Chemistry 301\",\n            \"TeacherName\": \"Dr. Emily Brown\",\n            \"point\": 3,\n            \"maxStudents\": 20,\n            \"currentStudentNumber\": 0,\n            \"students\": []\n        },\n        {\n            \"courseName\": \"Biology 401\",\n            \"TeacherName\": \"Dr. Michael Green\",\n            \"point\": 5,\n            \"maxStudents\": 15,\n            \"currentStudentNumber\": 0,\n            \"students\": []\n        },\n        {\n            \"courseName\": \"Computer Science 501\",\n            \"TeacherName\": \"Dr. Sarah White\",\n            \"point\": 4,\n            \"maxStudents\": 40,\n            \"currentStudentNumber\": 0,\n            \"students\": []\n        },\n        {\n            \"courseName\": \"Philosophy 101\",\n            \"TeacherName\": \"Dr. Alice Green\",\n            \"point\": 2,\n            \"maxStudents\": 20,\n            \"currentStudentNumber\": 0,\n            \"students\": []\n        },\n        {\n            \"courseName\": \"Economics 202\",\n            \"TeacherName\": \"Dr. Mark Brown\",\n            \"point\": 3,\n            \"maxStudents\": 35,\n            \"currentStudentNumber\": 0,\n            \"students\": []\n        },\n        {\n            \"courseName\": \"Art History 303\",\n            \"TeacherName\": \"Dr. Laura White\",\n            \"point\": 4,\n            \"maxStudents\": 25,\n            \"currentStudentNumber\": 0,\n            \"students\": []\n        },\n        {\n            \"courseName\": \"WEB\",\n            \"TeacherName\": \"KEREN\",\n            \"point\": 4,\n            \"maxStudents\": 30,\n            \"currentStudentNumber\": 0,\n            \"students\": []\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "add course to student",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NzlhMDA1MmI0NWQxNThlOGU3NWViZCIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzM2MDI2MDk3LCJleHAiOjE3MzYwMjY2OTd9.nmRXdyeOHC94gF1aG-sOx8vxlJ5yzNZ4iei-Rw8F5T8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"courseId\":\"677987507613e098ed4b4344\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ex2-db.onrender.com/api/student/123456/addCourse",
+					"protocol": "https",
+					"host": [
+						"ex2-db",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"student",
+						"123456",
+						"addCourse"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "add course to student",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NzlhMDA1MmI0NWQxNThlOGU3NWViZCIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzM2MDI2MDk3LCJleHAiOjE3MzYwMjY2OTd9.nmRXdyeOHC94gF1aG-sOx8vxlJ5yzNZ4iei-Rw8F5T8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"courseId\":\"677987507613e098ed4b4344\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ex2-db.onrender.com/api/student/123456/addCourse",
+							"protocol": "https",
+							"host": [
+								"ex2-db",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"student",
+								"123456",
+								"addCourse"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 04 Jan 2025 21:29:00 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "241"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "8fce524c4c4ddc56-FRA"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"142-bI/xe5m2cosylpiEXL91/gLRJWQ\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "5fc0b18f-580c-4ae4"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Course added successfully\",\n    \"student\": {\n        \"_id\": \"6779a0052b45d158e8e75ebd\",\n        \"id\": \"123456\",\n        \"name\": \"bahaasobeh\",\n        \"role\": \"student\",\n        \"address\": \"haifa\",\n        \"student_year\": 1,\n        \"pointsInSemester\": 5,\n        \"registeredCourses\": [\n            \"677987507613e098ed4b4344\"\n        ],\n        \"password\": \"$2b$10$bMNYQSFtRxmYfUnJtBNiPe4TOSzD5RMbf/1Cnm4dHOCXAKn87wNfK\",\n        \"__v\": 1\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "get all students",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://ex2-db.onrender.com/api/student/getall",
+					"protocol": "https",
+					"host": [
+						"ex2-db",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"student",
+						"getall"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get all students",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://ex2-db.onrender.com/api/student/getall",
+							"protocol": "https",
+							"host": [
+								"ex2-db",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"student",
+								"getall"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 04 Jan 2025 21:30:10 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "215"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "8fce5406ba54a06d-FRA"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"112-+JVZg1QUoBpfFsfJXRFeuLme2Qc\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "528a4e68-1645-4004"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"6779a0052b45d158e8e75ebd\",\n        \"id\": \"123456\",\n        \"name\": \"bahaasobeh\",\n        \"role\": \"student\",\n        \"address\": \"haifa\",\n        \"student_year\": 1,\n        \"pointsInSemester\": 5,\n        \"registeredCourses\": [\n            \"677987507613e098ed4b4344\"\n        ],\n        \"password\": \"$2b$10$bMNYQSFtRxmYfUnJtBNiPe4TOSzD5RMbf/1Cnm4dHOCXAKn87wNfK\",\n        \"__v\": 1\n    }\n]"
+				}
+			]
+		}
+	]
+}
