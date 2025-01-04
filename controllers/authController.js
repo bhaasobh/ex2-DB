@@ -1,15 +1,14 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const User = require('../models/user');
+const User = require('../models/userModel');
 
 
 
-// Register a student or teacher
+
 exports.register = async (req, res) => {
     try {
         const { username, password, role } = req.body;
 
-        // Ensure the role is either student or teacher
         if (!['student', 'teacher'].includes(role)) {
             return res.status(400).json({ error: "Role must be 'student' or 'teacher'" });
         }
@@ -26,7 +25,7 @@ exports.register = async (req, res) => {
     }
 };
 
-// Login and generate a 10-minute access token
+
 exports.login = async (req, res) => {
     try {
         const { username, password } = req.body;
