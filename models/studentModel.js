@@ -1,22 +1,18 @@
-const {mongoose}= require('mongoose');
+const mongoose = require('mongoose');
+const { v4: uuidv4 } = require('uuid');
 
 const studentSchema = new mongoose.Schema({
-    student_id: { type: String, unique: true },
-    courseName: { type: String, required: true },
-    TeacherName: { type: String, required: true },
-    point: { type: Number, required: true },
-    maxStudents: { type: Number, required: true },
-    currentStudentNumber : {type : Number , required : false}
-},
-{ collection: 'Courses'});
+    id: { type: String, unique: true , required:true },
+    Name: { type: String, required: true },
+    address: { type: String, required: true },
+    student_year: { type: Number, default:1 },
+    pointsInSemester: { type: Number, default: 0 },
+    registeredCourses: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Course', default: [] }],
+    password: { type: String, required: true }
+}, 
+{ collection: 'Students' });
 
-studentSchema.pre('save', function (next) {
-    
-    if (!this.student_id) {
-        this.student_id = `C-${Date.now()}`;
-    }
-    next();
-});
 
-const Course = mongoose.model('Course', studentSchema);
-module.exports = Course;
+
+const Students = mongoose.model('Students', studentSchema);
+module.exports = Students;

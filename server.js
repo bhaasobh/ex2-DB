@@ -6,6 +6,7 @@ const uri = "mongodb+srv://bahaasobeh:pZSlSdqy649gsib9@cluster0.osvp3.mongodb.ne
 const resturantRoutes = require('./routers/resturantsRouter');
 const authRoutes = require('./routers/authRoutes');
 const CourseRoutes = require('./routers/courseRoutes');
+const studentRoute = require('./routers/studentRoutes');
 
 require('dotenv').config();
 
@@ -21,7 +22,7 @@ app.get('/auth',async(req,res) => {
 
 });
 
-
+app.use('/api/student',studentRoute)
 app.use('/api/auth', authRoutes);
 app.use('/api/courses', CourseRoutes);
 app.use('/api/resturants', resturantRoutes);

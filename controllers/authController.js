@@ -1,55 +1,83 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const User = require('../models/userModel');
+const Students = require('../models/studentModel');
+const Teachers = require('../models/teacherModel');
 
-
-
-
-exports.register = async (req, res) => {
+exports.registerUser = async (req, res) => {
     try {
-        const { username, password, role } = req.body;
+        const { role, id, Name, address, student_year, password } = req.body;
 
-        if (!['student', 'teacher'].includes(role)) {
-            return res.status(400).json({ error: "Role must be 'student' or 'teacher'" });
+        if (!role || !['student', 'teacher'].includes(role)) {
+            return res.status(400).json({ error: "Invalid role. Must be 'student' or 'teacher'." });
         }
 
+        // Validate required fields
+        if (!id || !Name || !address || !password) {
+            return res.status(400).json({ error: "Missing required fields, including password." });
+        }
+
+        // Hash the password
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        const newUser = new User({ username, password: hashedPassword, role });
-        await newUser.save();
-        console.log("registered successfuly")
-        res.status(201).json({ message: `${role} registered successfully` });
+        if (role === 'student') {
+            const newStudent = new Students({
+                id,
+                Name,
+                address,
+                student_year,
+                password: hashedPassword,
+            });
+            await newStudent.save();
+            return res.status(201).json({ message: "Student registered successfully", student: newStudent });
+        }
+
+        if (role === 'teacher') {
+            const newTeacher = new Teachers({
+                id,
+                Name,
+                address,
+                password: hashedPassword,
+            });
+            await newTeacher.save();
+            return res.status(201).json({ message: "Teacher registered successfully", teacher: newTeacher });
+        }
     } catch (err) {
-        console.log("register failed")
-        res.status(400).json({ error: err.message });
+        console.error("Error registering user:", err.message);
+        res.status(500).json({ error: "Internal server error" });
     }
 };
 
-
 exports.login = async (req, res) => {
     try {
-        const { username, password } = req.body;
+        const { role, id, password } = req.body;
 
-        const user = await User.findOne({ username });
+        if (!role || !['student', 'teacher'].includes(role)) {
+            return res.status(400).json({ error: "Invalid role. Must be 'student' or 'teacher'." });
+        }
+
+        // Find user by role
+        const userModel = role === 'student' ? Students : Teachers;
+        const user = await userModel.findOne({ id });
         if (!user) return res.status(404).json({ error: 'User not found' });
 
+        // Validate password
         const isMatch = await bcrypt.compare(password, user.password);
-        if (!isMatch)
-            {
-                console.log("Invalid credentials");
-               return res.status(401).json({ error: 'Invalid credentials' }); 
-            } 
+        if (!isMatch) {
+            console.log("Invalid credentials");
+            return res.status(401).json({ error: 'Invalid credentials' });
+        }
 
         // Generate a 10-minute access token with role
         const token = jwt.sign(
-            { id: user._id, role: user.role },
+            { id: user._id, role: role },
             process.env.SECRET_KEY,
             { expiresIn: '10m' }
         );
-        console.log("log in successfully")
+        console.log("Login successful");
         res.status(200).json({ token });
     } catch (err) {
-        console.log("failed to log")
-        res.status(400).json({ error: err.message });
+        console.error("Failed to log in:", err.message);
+        res.status(500).json({ error: "Internal server error" });
     }
 };

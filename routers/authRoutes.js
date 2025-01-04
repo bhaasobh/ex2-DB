@@ -4,7 +4,7 @@ const authController = require('../controllers/authController');
 const { authenticateToken, authorizeRoles } = require('../middlewares/authMiddleware');
 
 // Authentication routes
-router.post('/register', authController.register);
+router.post('/register', authController.registerUser);
 router.post('/login', authController.login);
 
 // Protected route for students

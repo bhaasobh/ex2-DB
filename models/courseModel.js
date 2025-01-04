@@ -6,12 +6,11 @@ const courseSchema = new mongoose.Schema({
     TeacherName: { type: String, required: true },
     point: { type: Number, required: true },
     maxStudents: { type: Number, required: true },
-    currentStudentNumber : {type : Number , required : false}
+    currentStudentNumber : { type: Number, default: 0 }
 },
 { collection: 'Courses'});
 
 courseSchema.pre('save', function (next) {
-    this.currentStudentNumber = 0 ;
     if (!this.course_id) {
         this.course_id = `C-${Date.now()}`;
     }
