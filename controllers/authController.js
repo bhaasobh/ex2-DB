@@ -18,7 +18,7 @@ exports.register = async (req, res) => {
 
         const newUser = new User({ username, password: hashedPassword, role });
         await newUser.save();
-        console.log("registered successfully")
+        console.log("registered successfuly")
         res.status(201).json({ message: `${role} registered successfully` });
     } catch (err) {
         console.log("register failed")
