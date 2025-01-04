@@ -18,7 +18,6 @@ app.get('/auth',async(req,res) => {
     res.json ({token});
 
 });
-console.log('SECRET_KEY:', process.env.SECRET_KEY);
 
 
 app.use('/api/auth', authRoutes);

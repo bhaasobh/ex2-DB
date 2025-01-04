@@ -18,9 +18,10 @@ exports.register = async (req, res) => {
 
         const newUser = new User({ username, password: hashedPassword, role });
         await newUser.save();
-
+        console.log("registered successfully")
         res.status(201).json({ message: `${role} registered successfully` });
     } catch (err) {
+        console.log("register failed")
         res.status(400).json({ error: err.message });
     }
 };
@@ -34,7 +35,11 @@ exports.login = async (req, res) => {
         if (!user) return res.status(404).json({ error: 'User not found' });
 
         const isMatch = await bcrypt.compare(password, user.password);
-        if (!isMatch) return res.status(401).json({ error: 'Invalid credentials' });
+        if (!isMatch)
+            {
+                console.log("Invalid credentials");
+               return res.status(401).json({ error: 'Invalid credentials' }); 
+            } 
 
         // Generate a 10-minute access token with role
         const token = jwt.sign(
@@ -42,9 +47,10 @@ exports.login = async (req, res) => {
             process.env.SECRET_KEY,
             { expiresIn: '10m' }
         );
-
+        console.log("log in successfully")
         res.status(200).json({ token });
     } catch (err) {
+        console.log("failed to log")
         res.status(400).json({ error: err.message });
     }
 };

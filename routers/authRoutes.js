@@ -14,6 +14,7 @@ router.get(
     authorizeRoles('student'),
     (req, res) => {
         res.send('Welcome, Student!');
+        console.log("welcome student")
     }
 );
 
@@ -24,6 +25,7 @@ router.get(
     authorizeRoles('teacher'),
     (req, res) => {
         res.send('Welcome, Teacher!');
+        console.log("welcome teacher")
     }
 );
 
